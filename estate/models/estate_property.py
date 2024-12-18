@@ -34,7 +34,7 @@ class Property(models.Model):
     state = fields.Selection(string='State',
            selection=[
             ('new', 'New'),
-            ('received', 'Offer received'),
+            ('received', 'Offer received yessss'),
             ('accepted', 'Offer accepted'),
             ('sold', 'Sold'),
             ('canceled','Canceled') 
