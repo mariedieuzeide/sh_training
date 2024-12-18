@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <menuitem id="test_menu_root" name="Real Estate">
+            <menuitem id="test_first_level_menu" name="Advertisment">
+                <menuitem id="test_model_menu_action" action="estate_property_action" />
+            </menuitem>
+        </menuitem>
+        <menuitem id="menu_property_type" name="Property Type" parent="test_menu_root" action="estate_property_type_action"/>
+        <menuitem id="menu_property_tags" name="Property Tags" parent="test_menu_root" action="estate_property_tags_action"/>
+        <menuitem id="menu_property_offers" name="Property Offers" parent="test_menu_root" action="estate_property_offer_action"/>
+    </data>
+</odoo>
