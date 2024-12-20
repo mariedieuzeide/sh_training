@@ -43,17 +43,23 @@
             <field name="model">estate.property</field>
             <field name="arch" type="xml">
                 <form string="Formage">
+                <header>
+        <button name="sell" type="object" string="Sell the house my friend!" class="btn btn-primary" invisible="state=='sold' or state=='canceled'"/>
+    </header>
                     <sheet>
                         <group>
-                            <widget name="web_ribbon" title="DIMDIMDIM" bg_color="bg-danger" />
-                            <group>
-                                <h1>
+                            <widget name="web_ribbon" title='SOLD' invisible="state!='sold'"/>
+                                                            <h1>
                                     <field name="name" />
                                 </h1>
+                            <group>
                                 <br></br>
-                                <h1>
-                                    <field string="Price" name="selling_price" />
-                                </h1>
+                                <h2>
+                                    <label for="selling_price" string="Price"></label>
+                                    <field name="selling_price" />
+                                </h2>
+                                <field name="best_price" />
+                                <field name="state" />
                             </group>
                             <group>
                                 <field name="date_availability" />
@@ -64,12 +70,23 @@
                             </group>
                             <notebook>
                                 <page string="Description">
-                                    <field name="description" />
-                                    <field name="bedrooms">Bedrooms</field>
-                                    <field name="garden_orientation" />
+                                    <group>
+                                        <field name="description" />
+                                        <field name="bedrooms">Bedrooms</field>
+                                        <field name="garden" />
+                                        <field name="garden_orientation" />
+                                    </group>
+
                                 </page>
-                                                                <page string="Offer">
-                                    <field name="offer_ids" />
+                                <page string="Offer">
+                                    <field name="offer_ids" mode="list">
+                            <list editable="bottom">
+                                <field name="amount"/>
+                                <field name="validity_days" string="Validity Days"/>
+                                <field name="date_deadline"/>
+                                <field name="partner_id" string="Buyer"/>
+                                <field name="status"/>
+                            </list></field>
                                 </page>
                             </notebook>
                         </group>
